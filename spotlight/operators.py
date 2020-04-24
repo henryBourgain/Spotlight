@@ -9,6 +9,13 @@ class AddSpot(bpy.types.Operator):
 
     name = bpy.props.StringProperty()
     intensity = bpy.props.FloatProperty()
+    light_type = bpy.props.EnumProperty(
+        items=[
+            ('SUN', 'sun', ''),
+            ('SPOT', 'spot', ''),
+            ('AREA', 'area', ''),
+        ]
+    )
     
 
     def invoke(self, context, event):
@@ -20,6 +27,7 @@ class AddSpot(bpy.types.Operator):
         layout.use_property_decorate = False
         layout.prop(self, 'name', text='Spot Name')
         layout.prop(self, 'intensity', text='Intensity')
+        layout.prop(self, 'light_type', text='Light Type')
 
 
     # Methode pour dire ce qu'on fait quand on appel l'operateur
@@ -27,7 +35,7 @@ class AddSpot(bpy.types.Operator):
 
         if context.object:
 
-            Lamp_target.main(self.name, self.intensity, context.collection)
+            Lamp_target.main(self.name, self.intensity, context.collection, self.light_type)
             self.report({'INFO'}, 'chaine de caractere farouche')
 
             # Il attend un set comme {'FINISHED'} {'CANCELLED'} ou un autre

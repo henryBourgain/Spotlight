@@ -7,7 +7,7 @@ import bpy
 
 
 
-def main(name, power, coll):
+def main(name, power, coll, light_type):
     """
         Create spotlight
     """
@@ -15,7 +15,7 @@ def main(name, power, coll):
     target_object = bpy.context.object
     
     # Create spot
-    spot_obj = create_spot_object(name, power, coll)
+    spot_obj = create_spot_object(name, power, coll, light_type)
     
     # Place spot
     place_spot_object(spot_obj, target_object)
@@ -26,10 +26,10 @@ def main(name, power, coll):
 
     
     
-def create_spot_object(name, power, coll):
+def create_spot_object(name, power, coll, light_type):
     
     # Create data
-    spot_data = bpy.data.lights.new(name + "_data", 'SPOT')
+    spot_data = bpy.data.lights.new(name + "_data", light_type)
     
     # Change value of energy
     spot_data.energy = power
