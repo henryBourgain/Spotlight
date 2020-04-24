@@ -1,0 +1,2 @@
+# Spotlight
+add spot
