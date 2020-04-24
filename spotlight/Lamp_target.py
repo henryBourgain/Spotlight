@@ -1,9 +1,17 @@
+"""
+    This module contains tools to create light (docstring)
+"""
+
+
 import bpy
 
 
 
 def main(name, power, coll):
-    
+    """
+        Create spotlight
+    """
+
     target_object = bpy.context.object
     
     # Create spot
@@ -53,10 +61,4 @@ def create_track_constraint(spot_obj, target_object):
     constr.track_axis = 'TRACK_NEGATIVE_Z'
     
     # Set axis constraint Up Y
-    constr.up_axis = 'UP_Y'
-    
-    
-    
-
-main('patate3', 10, bpy.data.collections['Collection'])
-    
+    constr.up_axis = 'UP_Y' 
