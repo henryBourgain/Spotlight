@@ -18,16 +18,20 @@ bl_info = {
     "blender" : (2, 80, 0),
     "version" : (0, 0, 1),
     "location" : "",
-    "warning" : "Bijoul soyé indoulgent",
+    "warning" : "Bijoul soyé indoulgent, siouplé",
     "category" : "Generic",
     "wiki_url": "https://www.google.com"
 }
 
-from . import operators
+from . import operators, panels, properties
 import bpy
 
 def register():
     operators.register()
+    panels.register()
+    properties.register()     
 
 def unregister():
     operators.unregister()
+    panels.unregister()
+    properties.unregister() 

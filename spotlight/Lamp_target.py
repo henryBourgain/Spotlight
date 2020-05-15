@@ -7,7 +7,7 @@ import bpy
 
 
 
-def main(name, power, coll, light_type):
+def main(name, power, coll, light_type): 
     """
         Create spotlight
     """
@@ -22,8 +22,6 @@ def main(name, power, coll, light_type):
     
     # Add contrain to the spot
     create_track_constraint(spot_obj, target_object)
-    
-
     
     
 def create_spot_object(name, power, coll, light_type):
@@ -42,13 +40,14 @@ def create_spot_object(name, power, coll, light_type):
     
     return spot_obj
 
+
 def place_spot_object(spot_obj, target_obj):
     
     # Translation of 4 on the Z axis
-    spot_obj.location = target_obj.location
-    spot_obj.location.z = target_obj.location.z + 4
-    
-    
+    spot_obj.location = target_obj.location    
+    spot_obj.location.z = target_obj.location.z + 6
+
+
 def create_track_constraint(spot_obj, target_object):
     
     # Create constraint type 'Track to'
